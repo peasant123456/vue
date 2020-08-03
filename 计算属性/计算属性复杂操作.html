@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算属性复杂操作</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>总价格：{{totalPrice}}</h2>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                books: [{
+                    id: 110,
+                    name: 'python基础',
+                    price: 99
+                }, {
+                    id: 111,
+                    name: 'python高级',
+                    price: 109
+                }, {
+                    id: 112,
+                    name: '鸟哥私房菜',
+                    price: 88
+                }, {
+                    id: 113,
+                    name: '操作系统原理',
+                    price: 59
+                }]
+            },
+            computed: {
+                totalPrice: function() {
+                    let sum = 0;
+                    for (let i = 0; i < this.books.length; i++) {
+                        console.log('hello');
+                        sum += this.books[i].price;
+                    }
+                    return sum
+                }
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

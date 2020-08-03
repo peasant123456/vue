@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-model之checkout类型</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- checkbox单选框 -->
+        <label for="agree">
+            <input type="checkbox" id="agree" v-model=isAgree>同意协议
+        </label>
+        <h2>你选择的是：{{isAgree}}</h2>
+        <button :disabled="!isAgree">下一步</button>
+        <!-- checkbox 多选框 -->
+        <br>
+        <input type="checkbox" value="篮球" v-model='hobbies'>篮球
+        <input type="checkbox" value="足球" v-model='hobbies'>足球
+        <input type="checkbox" value="乒乓球" v-model='hobbies'>乒乓球
+        <input type="checkbox" value="台球" v-model='hobbies'>台球
+
+        <h2>您的爱好是：{{hobbies}}</h2>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                isAgree: false,
+                hobbies: []
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

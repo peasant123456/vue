@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件语法糖注册方式</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+        <hr>
+        <cpn1></cpn1>
+    </div>
+
+    <script>
+        // 全局组件注册的语法糖
+        Vue.component('cpn', {
+            template: `
+            <div>
+                <h2>全局组件</h2>
+                <p>hello</p>
+                <p>我是全局组件语法糖</p>
+            </div>
+            `
+        })
+
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#app',
+            components: {
+                cpn1: {
+                    template: `
+                    <div>
+                        <h2>全局组件</h2>
+                        <p>hello</p>
+                        <p>我是局部组件语法糖</p>
+                    </div>
+                    `
+                }
+            },
+            data: {},
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

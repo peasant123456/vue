@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>那些数组方法是响应式的</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in items">{{item}}</li>
+        </ul>
+        <button @click="btnClick">按钮</button>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                items: ['a', 'b', 'c', 'd', 'e']
+            },
+            methods: {
+                btnClick() {
+                    // 1.push方法往数组末尾追加元素
+                    // this.items.push('f')
+                    // this.items.push('f','e','g')
+
+                    // 2. 通过索引修改数组（非响应式）
+                    // this.items[1] = 'aaa';
+                    // set(要修改对象,索引值,修改后的值)
+                    Vue.set(this.items, 1, 'aaa');
+
+                    // 3. pop():弹出数组中最后一个元素
+                    //this.items.pop()
+
+                    // 4. shift():删除数组第一个元素
+                    //this.items.shift();
+
+                    // 5. unshift()：在数组最前面添加元素
+                    // this.items.unshift('v');
+                    // this.items.unshift('v', 'x', 'y');
+
+                    // 6. splice():删除/插入/替换
+                    /*
+                        a.删除元素：第二个参数传入你要删除几个元素（如果没有传就删除后面所有元素）
+                        b.替换元素：第二个参数，表示我们要替换几个元素，后面是用于替换前面的元素
+                        c.插入元素：第二个参数，传入0，并且后面跟上要插入的元素
+                    */
+                    // this.items.splice(1);
+                    // this.items.splice(1, 2);
+                    // this.items.splice(1, 2, '11', '22');
+                    // this.items.splice(1, 0, '33', '44');
+
+                    // 7. sort():排序
+                    // this.items.sort();
+
+                    // 8. reverse()：数组反转
+                    // this.items.reverse();
+
+                }
+            }
+        });
+
+        // 可变参数
+        function sum(...num) {
+            console.log(num);
+            let sum = 0;
+            for (let i = 0; i < num.length; i++) {
+                sum += num[i]
+            }
+            return sum;
+        }
+        res = sum(20, 30, 40, 50);
+        console.log(res);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父子组件</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn2></cpn2>
+    </div>
+
+    <script>
+        // 创建第一个组件构造器（cpn1子组件）
+        const cpnC1 = Vue.extend({
+            template: `
+            <div>
+                <h2>全局组件</h2>
+                <p>hello</p>
+                <p>我是组件1</p>
+            </div>
+            `
+        })
+
+
+        // 创建第二个组件构造器(cpn2父组s件)
+        const cpnC2 = Vue.extend({
+            template: `
+            <div>
+                <h2>全局组件</h2>
+                <p>hello</p>
+                <p>我是组件2</p>
+                <cpn1></cpn1>
+            </div>
+            `,
+            components: {
+                cpn1: cpnC1
+            }
+        })
+
+
+        //创建Vue实例,得到 ViewModel
+        // root组件
+        const vm = new Vue({
+            el: '#app',
+            components: {
+                cpn2: cpnC2
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业</title>
+    <script src="./js/vue.js"></script>
+</head>
+<!-- 点击列表哪一项，列表变成红色 -->
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(m,index) in movies">{{m}}----{{index}}</li>
+        </ul>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                movies: ['功夫', 'A计划', '醉拳', '赌侠', '赌神']
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

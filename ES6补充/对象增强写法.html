@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象增强写法</title>
+
+</head>
+
+<body>
+
+    <script>
+        // var obj = new Object()
+        // 对象字面量
+        // var obj = {}
+
+        // var obj = {
+        //     name: 'tom',
+        //     age: 19,
+        //     eat: function() {
+        //         console.log('eatting...');
+        //     },
+        //     run: function() {
+        //         console.log('running...');
+        //     }
+        // }
+
+        // 1. 属性增强写法
+        const name = 'tom';
+        const age = 18;
+
+        // ES5写法
+        // const obj = {
+        //     name:name,
+        //     age:age
+        // }
+
+        // ES6写法
+        const obj = {
+            name,
+            age
+        }
+        console.log(obj);
+
+        // ES6中函数增强写法
+        var obj1 = {
+            eat() {
+                console.log('eating...');
+            },
+            run() {
+                console.log('running...');
+            }
+        }
+        obj1.eat();
+        obj1.run();
+    </script>
+</body>
+
+</html>

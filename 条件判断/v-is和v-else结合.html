@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-if和v-else结合</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if='isShow'>
+            {{msg}}
+            <div>123</div>
+            <div>456</div>
+            <div>789</div>
+        </div>
+        <h3 v-else>条件为假执行如下代码</h3>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello',
+                isShow: 'true'
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

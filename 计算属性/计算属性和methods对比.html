@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算属性和method对比</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{getName()}}</h2>
+        <h2>{{getName()}}</h2>
+        <h2>{{getName()}}</h2>
+        <h2>{{getName()}}</h2>
+
+        <h2>{{fullName}}</h2>
+        <h2>{{fullName}}</h2>
+        <h2>{{fullName}}</h2>
+        <h2>{{fullName}}</h2>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                firstName: 'Lerbron',
+                lastName: 'james'
+            },
+            // computed：计算属性（）
+            computed: {
+                fullName: function() {
+                    console.log('fullName');
+                    return this.firstName + ' ' + this.lastName
+                }
+            },
+            methods: {
+                getName: function() {
+                    console.log('getName');
+                    return this.firstName + ' ' + this.lastName
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

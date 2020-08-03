@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>input中值绑定</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- input中的值绑定 -->
+        <label v-for="item in originFruits" :for='inp'>
+            <input type="checkbox" :value='item' :id='inp' v-model='hobbies'>{{item}}
+        </label>
+        <h2>您选择的水果是：{{fruits}}</h2>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                fruit: '西瓜',
+                fruits: [],
+                originFruits: ['篮球', '足球', '台球', '羽毛球', '高尔夫球']
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

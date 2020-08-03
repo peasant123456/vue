@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-cloak</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        {{msg}}
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        // vue解析之前div有属性v-cloak
+        // vue解析之后div没有属性v-cloak
+        setTimeout(function() {
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    msg: 'hello'
+                },
+                methods: {}
+            });
+        }, 1000)
+    </script>
+</body>
+
+</html>

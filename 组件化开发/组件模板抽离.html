@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件模板抽离</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+    </div>
+    <!-- 1.组件模板抽离写法 -->
+    <!-- <script type="text/x-template" id='cpn'>
+        <div>
+            <h2>全局组件</h2>
+            <p>hello</p>
+            <p>组件抽离</p>
+        </div>
+    </script> -->
+
+    <!-- 2.组件模板抽离写法 -->
+    <template id='cpn1'>
+        <div>
+            <h2>全局组件</h2>
+            <p>hello</p>
+            <p>组件抽离</p>
+        </div>
+    </template>
+
+    <script>
+        // 注册一个全局组件
+        Vue.component('cpn', {
+            // template: '#cpn'
+            template: '#cpn1'
+        })
+
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div @click='divClick'>
+            aaaaa
+            <!-- <button @click='btnClick'>按钮</button> -->
+            <!-- 1. .stop修饰符阻止冒泡事件 -->
+            <button @click.stop='btnClick'>按钮</button>
+        </div>
+        <br>
+        <!-- 2. .prevent修饰符 -->
+        <form action="baidu">
+            <!-- <input type="submit" value='提交'> -->
+            <!-- <input type="submit" value='提交' @click='btnSubmit'> -->
+            <input type="submit" value='提交' @click.prevent='btnSubmit'>
+        </form>
+
+        <!-- 3. 监听某个键盘的键帽 -->
+        <!-- <input type="text" @keyup="keyUp"> -->
+        <input type="text" @keyup.enter="keyUp">
+
+        <!-- 4. .onece修饰符 -->
+        <button @click='btn2Click'>按钮2</button>
+        <button @click.once='btn2Click'>按钮3</button>
+    </div>
+
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                divClick() {
+                    console.log('divClick');
+                },
+                btnClick() {
+                    console.log('btnClick');
+                },
+                btnSubmit() {
+                    console.log('btnSubmit');
+                },
+                keyUp() {
+                    console.log('keyUp');
+                },
+                btn2Click() {
+                    console.log('btn2Click');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

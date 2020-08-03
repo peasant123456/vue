@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 错误写法 -->
+        <!-- <img src="{{imgUrl}}">
+        <img src="imgUrl"> -->
+        <!-- 正确写法 -->
+        <img v-bind:src="imgUrl">
+        <a v-bind:href="url">百度一下</a>
+        <!-- 语法糖写法 -->
+        <img :src="imgUrl">
+
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello',
+                url: 'http:www.baidu.com',
+                imgUrl: 'https://upload-images.jianshu.io/upload_images/7122046-9c06ee352ac0f6d3.png?imageMogr2/auto-orient/strip|imageView2/2/w/1170/format/webp'
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

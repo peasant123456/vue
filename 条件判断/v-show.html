@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-show</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-if:当条件为false，页面中根本就不会存在dom中 -->
+        <h2 v-if="isShow" id='a'>hello</h2>
+        <!-- v-show:当条件为false,v-show只是给元素添加行内样式：display:none -->
+        <h2 v-show="isShow" id='b'>hello</h2>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                isShow: true
+            }
+
+        });
+    </script>
+</body>
+
+</html>

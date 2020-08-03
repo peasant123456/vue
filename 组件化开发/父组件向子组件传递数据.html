@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父子件向子组件传递数据</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <cpn v-bind:cmovies='movies' v-bind:cmsg='msg'></cpn> -->
+        <cpn :cmsg='msg' :cmovies='movies'></cpn>
+    </div>
+    <template id='cpn'>
+        <div>
+            <ul>
+                <li v-for="item in cmovies">{{item}}</li>
+            </ul>
+            <h2>{{cmsg}}</h2>
+        </div>
+    </template>
+
+    <script>
+        // 父传子：props
+        const cpn = {
+            template: '#cpn',
+            // props: ['cmovies', 'cmsg']
+            props: {
+                // 1.类型限制
+                // cmovies: Array,
+                // cmsg: String
+
+                // 2.提供一些默认值，以及必传值
+                cmsg: {
+                    type: String,
+                    default: 'aaa',
+                    required: true
+                },
+                cmovies: {
+                    type: Array,
+                    // 类型是对象或者数组时，默认值必须是一个函数
+
+                    default () {
+                        return []
+                    }
+                }
+            }
+        }
+
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#app',
+            components: {
+                cpn
+            },
+            data: {
+                msg: 'hello',
+                movies: ['功夫', '少林足球', '逃学威龙', '赌圣']
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>
