@@ -562,62 +562,68 @@ function updateLink (link, options, obj) {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info__ = __webpack_require__(4);
+
+
+var _info = __webpack_require__(3);
+
 // 1.使用common.js的模块化规范
-const { add, mul } = __webpack_require__(3)
+var _require = __webpack_require__(4),
+    add = _require.add,
+    mul = _require.mul;
 
 console.log(add(20, 30));
 console.log(mul(10, 8));
 
 // 2.使用ES6模块化规范
 
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["b" /* name */]);
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["a" /* age */]);
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["c" /* sex */]);
+console.log(_info.name);
+console.log(_info.age);
+console.log(_info.sex);
 
 // 3.依赖css文件
-__webpack_require__(5)
+__webpack_require__(5);
 
 // 4.依赖less文件
-__webpack_require__(10)
+__webpack_require__(10);
 
-document.writeln('<h2>你好啊！骚年！！！</h2>')
+document.writeln('<h2>你好啊！骚年！！！</h2>');
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function add(num1, num2) {
-    return num1 + num2
-}
+"use strict";
 
-function mul(num1, num2) {
-    return num1 * num2
-}
 
-module.exports = {
-    add,
-    mul
-}
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var name = exports.name = 'tom';
+var age = exports.age = 18;
+var sex = exports.sex = '男';
 
 /***/ }),
 /* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-const name = 'tom'
-/* harmony export (immutable) */ __webpack_exports__["b"] = name;
 
-const age = 18
-/* harmony export (immutable) */ __webpack_exports__["a"] = age;
 
-const sex = '男'
-/* harmony export (immutable) */ __webpack_exports__["c"] = sex;
+function add(num1, num2) {
+    return num1 + num2;
+}
 
+function mul(num1, num2) {
+    return num1 * num2;
+}
+
+module.exports = {
+    add: add,
+    mul: mul
+};
 
 /***/ }),
 /* 5 */
